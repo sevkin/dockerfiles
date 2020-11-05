@@ -17,7 +17,7 @@ RUN apk add --update tini \
     php5-xsl \
     php5-zip \
     php5-ctype \
-    && apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ --allow-untrusted gnu-libiconv \
+    && apk add --repository http://dl-cdn.alpinelinux.org/alpine/v3.10/community/ --allow-untrusted gnu-libiconv \
     && rm -rf /var/cache/apk/* \
     && ln -sf /dev/stderr /var/log/php-fpm.log
 # https://github.com/nunomaduro/phpinsights/issues/43#issuecomment-498108857
