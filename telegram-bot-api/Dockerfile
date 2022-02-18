@@ -1,4 +1,4 @@
-FROM alpine:3.14 AS builder
+FROM alpine:3.15 AS builder
 RUN apk update
 RUN apk upgrade
 RUN apk add --update alpine-sdk linux-headers git zlib-dev openssl-dev gperf cmake
@@ -8,10 +8,10 @@ WORKDIR /telegram-bot-api/build
 RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr/local ..
 RUN cmake --build . --target install
 
-FROM alpine:3.14
+FROM alpine:3.15
 LABEL repository.hub="sevkin/telegram-bot-api" \
-      repository.url="https://github.com/sevkin/dockerfiles" \
-      maintainer="Vsevolod Balashov <vsevolod@balashov.name>"
+    repository.url="https://github.com/sevkin/dockerfiles" \
+    maintainer="Vsevolod Balashov <vsevolod@balashov.name>"
 RUN apk update \
     && apk upgrade \
     && apk add --update tini zlib openssl libstdc++ \
